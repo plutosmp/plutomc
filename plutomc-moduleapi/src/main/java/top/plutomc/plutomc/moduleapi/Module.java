@@ -11,23 +11,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public abstract class Module {
     private static JavaPlugin pluginInstance = null;
-    private final String name;
 
-    public Module(String name) {
-        this.name = name;
-    }
-
-    public abstract void onLoad();
-
-    public abstract void onEnable();
-
-    public abstract void onDisable();
-
-    public String getName() {
-        return name;
-    }
-
-    public JavaPlugin getPluginInstance() {
+    public static JavaPlugin getPluginInstance() {
         return pluginInstance;
     }
 

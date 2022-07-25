@@ -15,30 +15,12 @@ import java.util.List;
  * @date: 7/25/2022 6:03 PM
  */
 
-public final class JQModule extends Module {
+public final class JQModule {
     private static File configFile;
     private static FileConfiguration configuration;
 
     public JQModule() {
-        super("joinquitmsg");
-    }
-
-    public static FileConfiguration getConfiguration() {
-        return configuration;
-    }
-
-    public static File getConfigFile() {
-        return configFile;
-    }
-
-    @Override
-    public void onLoad() {
-
-    }
-
-    @Override
-    public void onEnable() {
-        configFile = new File(getPluginInstance().getDataFolder(), "jqmsg.yml");
+        configFile = new File(Module.getPluginInstance().getDataFolder(), "jqmsg.yml");
         if (!configFile.exists()) {
             try {
                 configFile.createNewFile();
@@ -53,8 +35,7 @@ public final class JQModule extends Module {
         }
     }
 
-    @Override
-    public void onDisable() {
-
+    public static FileConfiguration getConfiguration() {
+        return configuration;
     }
 }

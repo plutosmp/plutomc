@@ -19,6 +19,7 @@ public final class PlutoMC extends JavaPlugin {
     public void onEnable() {
         instance = this;
         Module.setPluginInstance(instance());
+        if (!getDataFolder().exists()) getDataFolder().mkdirs();
         new JQModule();
     }
 

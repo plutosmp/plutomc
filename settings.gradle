@@ -1,0 +1,5 @@
+rootProject.name = 'plutomc'
+include 'plutomc-joinquitmsg'
+include 'plutomc-moduleapi'
+include 'plutomc-moduleapi'
+

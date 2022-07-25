@@ -1,0 +1,43 @@
+plugins {
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+    id 'java'
+    id 'idea'
+}
+
+group = 'top.plutomc'
+version = '1.0.0'
+
+
+dependencies {
+    implementation(project(":plutomc-moduleapi"))
+    implementation(project(":plutomc-joinquitmsg"))
+}
+
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+
+    repositories {
+        mavenCentral()
+        maven {
+            name = 'spigotmc-repo'
+            url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+        }
+        maven {
+            name = 'sonatype'
+            url = 'https://oss.sonatype.org/content/groups/public/'
+        }
+    }
+
+    dependencies {
+        compileOnly 'org.spigotmc:spigot-api:1.13-R0.1-SNAPSHOT'
+    }
+}
+
+processResources {
+    filteringCharset "UTF-8"
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}

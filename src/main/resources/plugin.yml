@@ -1,5 +1,5 @@
 name: plutomc
-version: '${version}'
+version: '1.0.0'
 main: top.plutomc.plutomc.PlutoMC
 api-version: 1.13
 authors: [ GerryYuu ]

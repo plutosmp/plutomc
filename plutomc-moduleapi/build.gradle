@@ -4,7 +4,3 @@ plugins {
 
 group 'top.plutomc'
 version '1.0.0'
-
-repositories {
-    mavenCentral()
-}

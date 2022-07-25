@@ -10,9 +10,8 @@ import org.bukkit.plugin.java.JavaPlugin;
  */
 
 public abstract class Module {
-    private final String name;
-
     private static JavaPlugin pluginInstance = null;
+    private final String name;
 
     public Module(String name) {
         this.name = name;

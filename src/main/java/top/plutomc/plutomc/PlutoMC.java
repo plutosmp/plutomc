@@ -25,6 +25,7 @@ public final class PlutoMC extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
+        Module.setPluginInstance(instance());
         modules.forEach(Module::onEnable);
     }
 

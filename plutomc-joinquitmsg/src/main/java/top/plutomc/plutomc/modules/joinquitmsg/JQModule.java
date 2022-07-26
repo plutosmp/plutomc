@@ -2,7 +2,7 @@ package top.plutomc.plutomc.modules.joinquitmsg;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
-import top.plutomc.plutomc.moduleapi.Module;
+import top.plutomc.plutomc.modules.moduleapi.Module;
 
 import java.io.File;
 import java.io.IOException;

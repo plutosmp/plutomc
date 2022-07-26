@@ -1,13 +1,11 @@
 package top.plutomc.plutomc.modules.joinquitmsg;
 
-import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-import top.plutomc.plutomc.moduleapi.MessageUtil;
 
 /**
  * @packageName: top.plutomc.plutomc.modules.joinquitmsg

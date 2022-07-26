@@ -1,4 +1,4 @@
-package top.plutomc.plutomc.moduleapi;
+package top.plutomc.plutomc.modules.moduleapi;
 
 import org.bukkit.plugin.java.JavaPlugin;
 

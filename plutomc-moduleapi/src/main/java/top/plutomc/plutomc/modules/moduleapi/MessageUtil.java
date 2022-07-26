@@ -1,4 +1,4 @@
-package top.plutomc.plutomc.moduleapi;
+package top.plutomc.plutomc.modules.moduleapi;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;

@@ -18,6 +18,8 @@ public final class PlutoMC extends JavaPlugin {
         Module.setPluginInstance(instance());
         if (!getDataFolder().exists()) getDataFolder().mkdirs();
         new JQModule();
+        getServer().getPluginCommand("plutomc").setExecutor(new Command());
+        getServer().getPluginCommand("plutomc").setTabCompleter(new Command());
     }
 
     @Override

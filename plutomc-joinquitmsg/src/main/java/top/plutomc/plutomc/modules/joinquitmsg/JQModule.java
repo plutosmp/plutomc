@@ -33,6 +33,7 @@ public final class JQModule {
                 throw new RuntimeException(e);
             }
         }
+        Module.getPluginInstance().getServer().getPluginManager().registerEvents(new PlayerListeners(), Module.getPluginInstance());
     }
 
     public static FileConfiguration getConfiguration() {

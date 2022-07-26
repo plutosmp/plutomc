@@ -2,6 +2,7 @@ package top.plutomc.plutomc.moduleapi;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
+import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver;
 import org.bukkit.ChatColor;
 
 /**
@@ -15,8 +16,4 @@ public final class MessageUtil {
     private MessageUtil() {
     }
 
-    public static Component parseMsg(String m) {
-        MiniMessage miniMessage = MiniMessage.miniMessage();
-        return miniMessage.deserialize(ChatColor.translateAlternateColorCodes('&', m));
-    }
 }

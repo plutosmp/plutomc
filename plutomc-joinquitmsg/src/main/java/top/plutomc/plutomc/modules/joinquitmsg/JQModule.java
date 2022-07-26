@@ -32,6 +32,8 @@ public final class JQModule {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+        }else {
+            configuration = YamlConfiguration.loadConfiguration(configFile);
         }
         Module.getPluginInstance().getServer().getPluginManager().registerEvents(new PlayerListeners(), Module.getPluginInstance());
     }

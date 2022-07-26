@@ -1,5 +1,8 @@
 package top.plutomc.plutomc.modules.joinquitmsg;
 
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.minimessage.MiniMessage;
+import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -16,13 +19,21 @@ import top.plutomc.plutomc.moduleapi.MessageUtil;
 public final class PlayerListeners implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
-        event.joinMessage(MessageUtil.parseMsg(JQModule.getConfiguration().getString("joinMsg")));
-        JQModule.getConfiguration().getStringList("joinServerMsg")
-                .forEach(message -> event.getPlayer().sendMessage(MessageUtil.parseMsg(message)));
+        event.joinMessage(MiniMessage.miniMessage().deserialize(
+                JQModule.getConfiguration().getString("joinMsg"),
+                Placeholder.parsed("player", event.getPlayer().getName())
+        ));
+        JQModule.getConfiguration().getStringList("joinServerMsg").forEach(
+                msg -> MiniMessage.miniMessage().deserialize(msg,
+                        Placeholder.parsed("player", event.getPlayer().getName()))
+        );
     }
 
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent event) {
-        event.quitMessage(MessageUtil.parseMsg(JQModule.getConfiguration().getString("quitMsg")));
+        event.quitMessage(MiniMessage.miniMessage().deserialize(
+            JQModule.getConfiguration().getString("quitMsg"),
+                 Placeholder.parsed("player", event.getPlayer().getName())
+        ));
     }
 }

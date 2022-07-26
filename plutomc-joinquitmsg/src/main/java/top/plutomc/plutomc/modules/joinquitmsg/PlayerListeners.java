@@ -30,8 +30,8 @@ public final class PlayerListeners implements Listener {
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent event) {
         event.quitMessage(MiniMessage.miniMessage().deserialize(
-            JQModule.getConfiguration().getString("quitMsg"),
-                 Placeholder.parsed("player", event.getPlayer().getName())
+                JQModule.getConfiguration().getString("quitMsg"),
+                Placeholder.parsed("player", event.getPlayer().getName())
         ));
     }
 }

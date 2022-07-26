@@ -14,12 +14,15 @@ import java.util.Set;
 
 public abstract class Module {
     private static Set<Module> modules = new HashSet<>();
+    private static JavaPlugin pluginInstance = null;
 
     public static void registerModule(Module module) {
         modules.add(module);
     }
 
-    private static JavaPlugin pluginInstance = null;
+    public static Set<Module> getModules() {
+        return modules;
+    }
 
     public JavaPlugin getPluginInstance() {
         return pluginInstance;
@@ -27,10 +30,6 @@ public abstract class Module {
 
     public static void setPluginInstance(JavaPlugin pluginInstance) {
         Module.pluginInstance = pluginInstance;
-    }
-
-    public static Set<Module> getModules() {
-        return modules;
     }
 
     public abstract void reload();

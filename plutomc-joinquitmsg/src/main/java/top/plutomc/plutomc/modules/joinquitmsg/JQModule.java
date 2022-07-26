@@ -16,7 +16,7 @@ import java.util.List;
  * @date: 7/25/2022 6:03 PM
  */
 
-public final class JQModule extends Module{
+public final class JQModule extends Module {
 
     private static File configFile;
     private static FileConfiguration configuration;
@@ -53,7 +53,7 @@ public final class JQModule extends Module{
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-        }else {
+        } else {
             configuration = YamlConfiguration.loadConfiguration(configFile);
         }
         getPluginInstance().getServer().getPluginManager().registerEvents(new PlayerListeners(), getPluginInstance());

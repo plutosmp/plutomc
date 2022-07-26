@@ -24,7 +24,6 @@ public class Command implements TabExecutor {
 
         if (args.length == 1 && args[0].equalsIgnoreCase("reload")) {
             PlutoMC.instance().reloadConfig();
-            ;
             Module.getModules().forEach(Module::reload);
             sender.sendMessage(MiniMessage.miniMessage().deserialize("<green>Reload completed."));
         }

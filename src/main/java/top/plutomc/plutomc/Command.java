@@ -5,6 +5,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import top.plutomc.plutomc.modules.moduleapi.Module;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +24,7 @@ public class Command implements TabExecutor {
 
         if (args.length == 1 && args[0].equalsIgnoreCase("reload")) {
             PlutoMC.instance().reloadConfig();;
+            Module.getModules().forEach(Module::reload);
             sender.sendMessage(MiniMessage.miniMessage().deserialize("<green>Reload completed."));
         }
         return true;

@@ -1,5 +1,6 @@
 package top.plutomc.plutomc.modules.joinquitmsg;
 
+import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import top.plutomc.plutomc.modules.moduleapi.Module;
@@ -15,12 +16,32 @@ import java.util.List;
  * @date: 7/25/2022 6:03 PM
  */
 
-public final class JQModule {
+public final class JQModule extends Module{
+
     private static File configFile;
     private static FileConfiguration configuration;
 
     public JQModule() {
-        configFile = new File(Module.getPluginInstance().getDataFolder(), "jqmsg.yml");
+    }
+
+    public static FileConfiguration getConfiguration() {
+        return configuration;
+    }
+
+    @Override
+    public void reload() {
+        try {
+            configuration.load(configFile);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (InvalidConfigurationException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void init() {
+        configFile = new File(getPluginInstance().getDataFolder(), "jqmsg.yml");
         if (!configFile.exists()) {
             try {
                 configFile.createNewFile();
@@ -35,10 +56,6 @@ public final class JQModule {
         }else {
             configuration = YamlConfiguration.loadConfiguration(configFile);
         }
-        Module.getPluginInstance().getServer().getPluginManager().registerEvents(new PlayerListeners(), Module.getPluginInstance());
-    }
-
-    public static FileConfiguration getConfiguration() {
-        return configuration;
+        getPluginInstance().getServer().getPluginManager().registerEvents(new PlayerListeners(), getPluginInstance());
     }
 }

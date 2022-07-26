@@ -1,8 +1,8 @@
 package top.plutomc.plutomc;
 
 import org.bukkit.plugin.java.JavaPlugin;
-import top.plutomc.plutomc.modules.moduleapi.Module;
 import top.plutomc.plutomc.modules.joinquitmsg.JQModule;
+import top.plutomc.plutomc.modules.moduleapi.Module;
 
 public final class PlutoMC extends JavaPlugin {
 
@@ -17,7 +17,8 @@ public final class PlutoMC extends JavaPlugin {
         instance = this;
         Module.setPluginInstance(instance());
         if (!getDataFolder().exists()) getDataFolder().mkdirs();
-        new JQModule();
+        Module.registerModule(new JQModule());
+        Module.getModules().forEach(Module::init);
         getServer().getPluginCommand("plutomc").setExecutor(new Command());
         getServer().getPluginCommand("plutomc").setTabCompleter(new Command());
     }

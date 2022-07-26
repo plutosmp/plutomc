@@ -22,8 +22,8 @@ public final class PlayerListeners implements Listener {
                 Placeholder.parsed("player", event.getPlayer().getName())
         ));
         JQModule.getConfiguration().getStringList("joinServerMsg").forEach(
-                msg -> MiniMessage.miniMessage().deserialize(msg,
-                        Placeholder.parsed("player", event.getPlayer().getName()))
+                msg -> event.getPlayer().sendMessage(MiniMessage.miniMessage().deserialize(msg,
+                        Placeholder.parsed("player", event.getPlayer().getName())))
         );
     }
 
